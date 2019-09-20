@@ -2,6 +2,7 @@
 import unittest
 from HelloPython import HelloPython
 
+
 class TestHelloPython(unittest.TestCase):
 
     def test_hello(self):
@@ -14,4 +15,3 @@ class TestHelloPython(unittest.TestCase):
 
         message = "ああぁぁああ!!!"
         self.assertTrue(HelloPython(message=message).hello())
-
