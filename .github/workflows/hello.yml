@@ -1,10 +1,59 @@
-name: Hello, World!
-on: push
+name: Example of CI/CD for Python
+
+on:
+  push:
+    branches:
+      - develop
+      - master
 
 jobs:
-  build:
-    name: Greeting
-    runs-on: ubuntu-latest
+  lint:
+    name: Lint check
+    runs-on: ubuntu-18.04
     steps:
-      - run: echo "Hello, World!"
-      - run: echo "The World!!!!!!!!!!!!!!!!!!1"
+      - uses: actions/checkout@master
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          version: '3.7'
+          architecture: 'x64'
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip pipenv
+          pipenv install --dev flake8
+      - name: Lint check with flake8
+        run: pipenv run flake8 .
+
+  format:
+    name: code format
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          version: '3.7'
+          architecture: 'x64'
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip pipenv
+          pipenv install --dev autopep8
+      - name: Code format with autopep8
+        run: pipenv run autopep8 -ivr .
+
+  test:
+    name: source test
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          version: '3.7'
+          architecture: 'x64'
+      - name: Install dependencies
+        run: pip install --upgrade pip pipenv
+      - name: Let's test
+        run : python -m unittest tests.TestHelloPython
+
+
