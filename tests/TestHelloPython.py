@@ -2,12 +2,11 @@
 import unittest
 from HelloPython import HelloPython
 
-
 class TestHelloPython(unittest.TestCase):
 
     def test_hello(self):
 
-        message = "(\^v^);"
+        message = r"(\^v^);"
         self.assertTrue(HelloPython(message=message).hello())
 
         message = 1111
