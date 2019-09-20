@@ -1,5 +1,6 @@
 # coding: utf-8
 
+
 class HelloPython:
 
     def __init__(self, message=None):
