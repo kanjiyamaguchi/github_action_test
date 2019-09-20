@@ -6,7 +6,7 @@ class TestHelloPython(unittest.TestCase):
 
     def test_hello(self):
 
-        message = r"(\^v^);"
+        message = "(^v^);"
         self.assertTrue(HelloPython(message=message).hello())
 
         message = 1111
@@ -14,3 +14,4 @@ class TestHelloPython(unittest.TestCase):
 
         message = "ああぁぁああ!!!"
         self.assertTrue(HelloPython(message=message).hello())
+
