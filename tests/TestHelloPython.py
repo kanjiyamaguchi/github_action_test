@@ -13,6 +13,6 @@ class TestHelloPython(unittest.TestCase):
         message = 1111
         self.assertTrue(HelloPython(message=message).hello())
 
-        message = "ああぁぁああ!!!""
+        message = "ああぁぁああ!!!"
         self.assertTrue(HelloPython(message=message).hello())
 
