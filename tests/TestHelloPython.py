@@ -15,4 +15,3 @@ class TestHelloPython(unittest.TestCase):
 
         message = "ああぁぁああ!!!"
         self.assertTrue(HelloPython(message=message).hello())
-
